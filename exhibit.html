@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exhibit | EXHIBIT A</title>
+  <meta name="description" content="View this exhibit — one product, spotlit, with its full placard.">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <nav class="site-header__nav-left">
+        <button class="site-header__directory-btn" data-directory-open aria-label="Open directory navigation">
+          <span class="hamburger"><span></span><span></span><span></span></span>
+          Directory
+        </button>
+      </nav>
+      <div class="site-header__wordmark">
+        <a href="index.html">EXHIBIT A</a>
+      </div>
+      <nav class="site-header__nav-right">
+        <a href="collection.html" class="site-header__collection-link">
+          Collection <span class="site-header__collection-count">(0)</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- DIRECTORY OVERLAY -->
+  <div class="directory-overlay" id="directory-overlay" role="dialog" aria-label="Site directory">
+    <button class="directory-overlay__close" data-directory-close aria-label="Close directory">Close ✕</button>
+    <nav class="directory-overlay__nav">
+      <a href="wing-anime.html" class="directory-overlay__link" data-wing="anime">
+        <span class="wing-dot" style="background-color: #D62839"></span>Wing I — Anime
+      </a>
+      <a href="wing-cinema.html" class="directory-overlay__link" data-wing="cinema">
+        <span class="wing-dot" style="background-color: #E3A008"></span>Wing II — Cinema
+      </a>
+      <a href="wing-commissions.html" class="directory-overlay__link" data-wing="commissions">
+        <span class="wing-dot" style="background-color: #2C4A6E"></span>Wing III — Commissions
+      </a>
+      <a href="index.html" class="directory-overlay__link">Permanent Collection</a>
+      <div class="directory-overlay__meta">
+        <a href="about.html">About the Gallery</a> &nbsp;·&nbsp;
+        <a href="collection.html">Your Collection</a>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- EXHIBIT CONTENT -->
+  <main class="page-container" id="exhibit-page">
+    <div class="exhibit-layout" id="exhibit-layout">
+      <!-- Left: Photo stage -->
+      <div class="exhibit-stage" id="exhibit-stage">
+        <div class="exhibit-stage__spotlight"></div>
+        <img src="" alt="" class="exhibit-stage__image" id="exhibit-image" style="display: none;" onerror="this.style.display='none'; document.getElementById('exhibit-placeholder').style.display='flex';">
+        <div class="exhibit-stage__placeholder" id="exhibit-placeholder">
+          <p>Exhibit photograph</p>
+          <p style="margin-top: 8px; font-size: 9px; opacity: 0.6;">Image placeholder</p>
+        </div>
+      </div>
+
+      <!-- Right: Placard -->
+      <div class="exhibit-placard" id="exhibit-placard">
+        <div class="exhibit-placard__plate" id="exhibit-plate">Plate No. ---</div>
+        <h1 class="exhibit-placard__title" id="exhibit-title">Loading...</h1>
+        <div class="exhibit-placard__wing" id="exhibit-wing">
+          <span class="wing-dot" id="exhibit-wing-dot"></span>
+          <span id="exhibit-wing-label"></span>
+        </div>
+
+        <div class="exhibit-placard__divider"></div>
+
+        <p class="exhibit-placard__detail-label">Medium</p>
+        <p class="exhibit-placard__detail-value" id="exhibit-medium"></p>
+
+        <p class="exhibit-placard__detail-label">Material</p>
+        <p class="exhibit-placard__detail-value" id="exhibit-material"></p>
+
+        <p class="exhibit-placard__detail-label">Curator's note</p>
+        <p class="exhibit-placard__curator-note" id="exhibit-curator-note"></p>
+
+        <div class="exhibit-placard__divider"></div>
+
+        <p class="exhibit-placard__size-label">Size</p>
+        <div class="size-selector" id="exhibit-sizes">
+          <!-- Populated by JS -->
+        </div>
+
+        <p class="exhibit-placard__price" id="exhibit-price">$--</p>
+
+        <button class="btn btn--primary" id="exhibit-add-btn" style="width: 100%;">
+          Add to collection
+        </button>
+
+        <p id="exhibit-stock-status" style="margin-top: 12px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-dust);"></p>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__block-title">Gallery Information</p>
+        <address class="site-footer__address">
+          Open 24 hours — online only<br>
+          <a href="mailto:hello@exhibita.co">hello@exhibita.co</a><br>
+          Shipping worldwide
+        </address>
+      </div>
+      <div>
+        <p class="site-footer__block-title">Wings</p>
+        <nav class="site-footer__links">
+          <a href="wing-anime.html" class="site-footer__link">Wing I — Anime</a>
+          <a href="wing-cinema.html" class="site-footer__link">Wing II — Cinema</a>
+          <a href="wing-commissions.html" class="site-footer__link">Wing III — Commissions</a>
+          <a href="index.html" class="site-footer__link">Permanent Collection</a>
+        </nav>
+      </div>
+      <div>
+        <p class="site-footer__block-title">Visit</p>
+        <nav class="site-footer__links">
+          <a href="about.html" class="site-footer__link">About the Gallery</a>
+          <a href="collection.html" class="site-footer__link">Your Collection</a>
+        </nav>
+      </div>
+      <div class="site-footer__legal">
+        © 2026 Exhibit A. All exhibits are original works. Free shipping on orders over $100.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/vitrine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const productId = getQueryParam('id');
+      const product = findProduct(productId);
+
+      if (!product) {
+        document.getElementById('exhibit-title').textContent = 'This exhibit has closed or moved.';
+        document.getElementById('exhibit-placard').innerHTML = `
+          <h1 class="exhibit-placard__title">This exhibit has closed or moved.</h1>
+          <p style="color: var(--color-dust); margin-top: 16px;">
+            <a href="index.html" style="color: var(--color-brass); border-bottom: 1px solid var(--color-brass);">Return to the gallery</a>
+          </p>
+        `;
+        return;
+      }
+
+      // Set wing theming
+      document.documentElement.setAttribute('data-wing', product.wing);
+
+      // Update page title
+      document.title = `${product.title} — EXHIBIT A`;
+
+      // Accent colors
+      const accentMap = {
+        anime: '#D62839',
+        cinema: '#E3A008',
+        commissions: '#2C4A6E',
+        permanent: '#B08D57'
+      };
+
+      // Populate placard
+      document.getElementById('exhibit-plate').textContent = `Plate No. ${product.plate_no}`;
+      document.getElementById('exhibit-title').textContent = product.title;
+      document.getElementById('exhibit-wing-label').textContent = product.wingLabel;
+      document.getElementById('exhibit-wing-dot').style.backgroundColor = accentMap[product.wing];
+      document.getElementById('exhibit-medium').textContent = product.mediumLabel;
+      document.getElementById('exhibit-material').textContent = product.material;
+      document.getElementById('exhibit-curator-note').textContent = product.curator_note;
+      document.getElementById('exhibit-price').textContent = `$${product.price}`;
+
+      if (product.image) {
+        const img = document.getElementById('exhibit-image');
+        img.src = `assets/${product.image}`;
+        img.alt = product.title;
+        img.style.display = 'block';
+        document.getElementById('exhibit-placeholder').style.display = 'none';
+      }
+
+      // Populate sizes
+      const sizesContainer = document.getElementById('exhibit-sizes');
+      sizesContainer.innerHTML = product.sizes.map(s => `
+        <button class="size-btn ${!s.in_stock ? 'is-disabled' : ''}" 
+                data-size="${s.size}"
+                ${!s.in_stock ? 'disabled' : ''}>
+          ${s.size}
+        </button>
+      `).join('');
+
+      // Size selection
+      const sizeButtons = sizesContainer.querySelectorAll('.size-btn:not(.is-disabled)');
+      sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          sizeButtons.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+        });
+      });
+
+      // Select first available size
+      const firstAvailable = sizesContainer.querySelector('.size-btn:not(.is-disabled)');
+      if (firstAvailable) firstAvailable.classList.add('is-active');
+
+      // Add to collection
+      document.getElementById('exhibit-add-btn').addEventListener('click', () => {
+        const activeSize = sizesContainer.querySelector('.size-btn.is-active');
+        if (!activeSize) {
+          document.getElementById('exhibit-stock-status').textContent = 'Please select a size.';
+          document.getElementById('exhibit-stock-status').style.color = accentMap.anime;
+          return;
+        }
+        Cart.addItem(product, activeSize.dataset.size);
+      });
+    });
+  </script>
+
+</body>
+</html>

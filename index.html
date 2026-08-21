@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXHIBIT A — Everything Here Is On Display</title>
+  <meta name="description" content="A streetwear gallery for anime, film, and your own words — printed as limited exhibits, not inventory.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <nav class="site-header__nav-left">
+        <button class="site-header__directory-btn" data-directory-open aria-label="Open directory navigation">
+          <span class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          Directory
+        </button>
+      </nav>
+
+      <div class="site-header__wordmark">
+        <a href="index.html">EXHIBIT A</a>
+      </div>
+
+      <nav class="site-header__nav-right">
+        <a href="collection.html" class="site-header__collection-link" id="collection-link">
+          Collection <span class="site-header__collection-count">(0)</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       DIRECTORY OVERLAY
+       ═══════════════════════════════════════════════════════ -->
+  <div class="directory-overlay" id="directory-overlay" role="dialog" aria-label="Site directory">
+    <button class="directory-overlay__close" data-directory-close aria-label="Close directory">Close ✕</button>
+    <nav class="directory-overlay__nav">
+      <a href="wing-anime.html" class="directory-overlay__link" data-wing="anime">
+        <span class="wing-dot" style="background-color: #D62839"></span>Wing I — Anime
+      </a>
+      <a href="wing-cinema.html" class="directory-overlay__link" data-wing="cinema">
+        <span class="wing-dot" style="background-color: #E3A008"></span>Wing II — Cinema
+      </a>
+      <a href="wing-commissions.html" class="directory-overlay__link" data-wing="commissions">
+        <span class="wing-dot" style="background-color: #2C4A6E"></span>Wing III — Commissions
+      </a>
+      <a href="index.html" class="directory-overlay__link">
+        Permanent Collection
+      </a>
+      <div class="directory-overlay__meta">
+        <a href="about.html">About the Gallery</a> &nbsp;·&nbsp;
+        <a href="collection.html">Your Collection</a>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO — The Rotunda (§6)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="home-hero" id="home-hero">
+    <div class="home-hero__content">
+      <p class="home-hero__eyebrow">Now Showing</p>
+      <h1 class="home-hero__title font-display">Cracked Moon</h1>
+      <p class="home-hero__subtitle">
+        A fractured lunar silhouette rendered in stark white on heavyweight black cotton. 
+        The debut exhibit from Wing I — now on display.
+      </p>
+      <a href="exhibit.html?id=anime-001" class="home-hero__cta">
+        Enter the exhibit <span class="home-hero__cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       WING DOORWAYS — Three typographic entry panels (§6)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="wing-doorways" id="wing-doorways">
+    <a href="wing-anime.html" class="wing-doorway" data-wing="anime">
+      <span class="wing-doorway__arrow">→</span>
+      <p class="wing-doorway__number font-mono">Wing I</p>
+      <h2 class="wing-doorway__title">Anime</h2>
+      <p class="wing-doorway__subtitle">Bold lines, louder stories</p>
+    </a>
+
+    <a href="wing-cinema.html" class="wing-doorway" data-wing="cinema">
+      <span class="wing-doorway__arrow">→</span>
+      <p class="wing-doorway__number font-mono">Wing II</p>
+      <h2 class="wing-doorway__title">Cinema</h2>
+      <p class="wing-doorway__subtitle">The frame burned into memory</p>
+    </a>
+
+    <a href="wing-commissions.html" class="wing-doorway" data-wing="commissions">
+      <span class="wing-doorway__arrow">→</span>
+      <p class="wing-doorway__number font-mono">Wing III</p>
+      <h2 class="wing-doorway__title">Commissions</h2>
+      <p class="wing-doorway__subtitle">Your words, your piece</p>
+    </a>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CURRENTLY ON DISPLAY — Asymmetric product grid
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section" id="on-display">
+    <div class="page-container">
+      <p class="eyebrow">Currently on display</p>
+      <h2 class="font-display text-xl" style="margin-bottom: var(--space-6);">Recent Exhibits</h2>
+
+      <div class="product-grid product-grid--masonry reveal-stagger" id="home-product-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER — Gallery hours & info plaque (§7)
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="site-footer" id="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__block-title">Gallery Information</p>
+        <address class="site-footer__address">
+          Open 24 hours — online only<br>
+          <a href="mailto:hello@exhibita.co">hello@exhibita.co</a><br>
+          Shipping worldwide
+        </address>
+      </div>
+
+      <div>
+        <p class="site-footer__block-title">Wings</p>
+        <nav class="site-footer__links">
+          <a href="wing-anime.html" class="site-footer__link">Wing I — Anime</a>
+          <a href="wing-cinema.html" class="site-footer__link">Wing II — Cinema</a>
+          <a href="wing-commissions.html" class="site-footer__link">Wing III — Commissions</a>
+          <a href="index.html" class="site-footer__link">Permanent Collection</a>
+        </nav>
+      </div>
+
+      <div>
+        <p class="site-footer__block-title">Visit</p>
+        <nav class="site-footer__links">
+          <a href="about.html" class="site-footer__link">About the Gallery</a>
+          <a href="collection.html" class="site-footer__link">Your Collection</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__legal">
+        © 2026 Exhibit A. All exhibits are original works. Free shipping on orders over $100.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/vitrine.js"></script>
+  <script>
+    // Populate the home grid with all products
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('home-product-grid');
+      if (grid && typeof CATALOG !== 'undefined') {
+        grid.innerHTML = CATALOG.map(p => createVitrineCardHTML(p)).join('');
+        if (window.initVitrineSpotlight) window.initVitrineSpotlight();
+        if (window.observeReveals) window.observeReveals();
+      }
+    });
+  </script>
+
+</body>
+</html>

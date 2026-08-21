@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-wing="anime">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wing I — Anime | EXHIBIT A</title>
+  <meta name="description" content="Bold lines, louder stories. Graphic prints drawn from the visual language of manga and anime — stamp-red ink, halftone dots, kinetic energy frozen on cotton.">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <nav class="site-header__nav-left">
+        <button class="site-header__directory-btn" data-directory-open aria-label="Open directory navigation">
+          <span class="hamburger"><span></span><span></span><span></span></span>
+          Directory
+        </button>
+      </nav>
+      <div class="site-header__wordmark">
+        <a href="index.html">EXHIBIT A</a>
+      </div>
+      <nav class="site-header__nav-right">
+        <a href="collection.html" class="site-header__collection-link">
+          Collection <span class="site-header__collection-count">(0)</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- DIRECTORY OVERLAY -->
+  <div class="directory-overlay" id="directory-overlay" role="dialog" aria-label="Site directory">
+    <button class="directory-overlay__close" data-directory-close aria-label="Close directory">Close ✕</button>
+    <nav class="directory-overlay__nav">
+      <a href="wing-anime.html" class="directory-overlay__link" data-wing="anime">
+        <span class="wing-dot" style="background-color: #D62839"></span>Wing I — Anime
+      </a>
+      <a href="wing-cinema.html" class="directory-overlay__link" data-wing="cinema">
+        <span class="wing-dot" style="background-color: #E3A008"></span>Wing II — Cinema
+      </a>
+      <a href="wing-commissions.html" class="directory-overlay__link" data-wing="commissions">
+        <span class="wing-dot" style="background-color: #2C4A6E"></span>Wing III — Commissions
+      </a>
+      <a href="index.html" class="directory-overlay__link">Permanent Collection</a>
+      <div class="directory-overlay__meta">
+        <a href="about.html">About the Gallery</a> &nbsp;·&nbsp;
+        <a href="collection.html">Your Collection</a>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- WING HEADER -->
+  <div class="page-container">
+    <div class="wing-header">
+      <p class="wing-header__number font-mono">Wing I</p>
+      <h1 class="wing-header__title">Anime</h1>
+      <p class="wing-header__statement">
+        Bold lines, louder stories. Graphic prints drawn from the visual language of manga and anime — stamp-red ink, halftone dots, kinetic energy frozen on cotton.
+      </p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar" id="anime-filters">
+      <div class="filter-group">
+        <button class="filter-group__label" data-filter-name="Medium">Medium <span class="filter-group__arrow">▾</span></button>
+        <div class="filter-group__dropdown">
+          <button class="filter-option is-active" data-filter="medium" data-value="all">All</button>
+          <button class="filter-option" data-filter="medium" data-value="tee">Tee</button>
+          <button class="filter-option" data-filter="medium" data-value="hoodie">Hoodie</button>
+          <button class="filter-option" data-filter="medium" data-value="crewneck">Crewneck</button>
+          <button class="filter-option" data-filter="medium" data-value="long_sleeve">Long Sleeve</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group__label" data-filter-name="Size">Size <span class="filter-group__arrow">▾</span></button>
+        <div class="filter-group__dropdown">
+          <button class="filter-option is-active" data-filter="size" data-value="all">All</button>
+          <button class="filter-option" data-filter="size" data-value="S">S</button>
+          <button class="filter-option" data-filter="size" data-value="M">M</button>
+          <button class="filter-option" data-filter="size" data-value="L">L</button>
+          <button class="filter-option" data-filter="size" data-value="XL">XL</button>
+          <button class="filter-option" data-filter="size" data-value="XXL">XXL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="wing-content">
+      <div class="product-grid product-grid--uniform reveal-stagger" id="anime-product-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__block-title">Gallery Information</p>
+        <address class="site-footer__address">
+          Open 24 hours — online only<br>
+          <a href="mailto:hello@exhibita.co">hello@exhibita.co</a><br>
+          Shipping worldwide
+        </address>
+      </div>
+      <div>
+        <p class="site-footer__block-title">Wings</p>
+        <nav class="site-footer__links">
+          <a href="wing-anime.html" class="site-footer__link">Wing I — Anime</a>
+          <a href="wing-cinema.html" class="site-footer__link">Wing II — Cinema</a>
+          <a href="wing-commissions.html" class="site-footer__link">Wing III — Commissions</a>
+          <a href="index.html" class="site-footer__link">Permanent Collection</a>
+        </nav>
+      </div>
+      <div>
+        <p class="site-footer__block-title">Visit</p>
+        <nav class="site-footer__links">
+          <a href="about.html" class="site-footer__link">About the Gallery</a>
+          <a href="collection.html" class="site-footer__link">Your Collection</a>
+        </nav>
+      </div>
+      <div class="site-footer__legal">
+        © 2026 Exhibit A. All exhibits are original works. Free shipping on orders over $100.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/vitrine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('anime-product-grid');
+      if (grid && typeof CATALOG !== 'undefined') {
+        const animeProducts = CATALOG.filter(p => p.wing === 'anime');
+        grid.innerHTML = animeProducts.map(p => createVitrineCardHTML(p)).join('');
+        if (window.initVitrineSpotlight) window.initVitrineSpotlight();
+        if (window.observeReveals) window.observeReveals();
+      }
+    });
+  </script>
+
+</body>
+</html>

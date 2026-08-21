@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architecture of the Online Custom T-Shirt Market</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+        /* Custom scrollbars and slider styling */
+        input[type=range] {
+            accent-color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Mandatory Required Comment Placeholders -->
+    <!-- Chosen Palette: Warm Neutral Streetwear (Slate-900 base text, Stone-50 background, Indigo-600 & Amber-500 accents for high readability and premium aesthetic) -->
+    <!-- Application Structure Plan: Designed as a 6-part interactive strategic intelligence portal: 1. Executive Market Trajectory (Macro stats & growth charts), 2. Competitive Archetypes (Dynamic breakdown of key market players), 3. IP Law & Licensing Blueprint (Interactive legal mythbuster & licensing requirements), 4. Textile Engineering & Print Matrix (Interactive tech comparison & wash durability chart), 5. D2C Unit Economics & LTV Simulator (Live financial calculator showing CAC, RTO, and per-unit profitability), and 6. Retention & Strategic Playbook (Actionable execution rules). This non-linear structure prioritizes actionable decision-making for founders and analysts over passive reading. -->
+    <!-- Visualization & Content Choices: 
+         - Market Trajectory -> Grouped Bar & Line Chart (Chart.js Canvas) -> Dynamic toggle between Global & India forecasts -> Clear macro context.
+         - Competitive Matrix -> Interactive Filterable Cards -> User clicks archetypes to inspect moat & CAC strategy -> High engagement comparison.
+         - IP Licensing -> Interactive Accordion & Minimum Guarantee Calculator -> Instant financial feedback for prospective licensees -> Practical utility.
+         - Printing Tech -> Interactive Radar/Bar Chart (Chart.js Canvas) & Comparison Matrix -> Visualizing Screen vs DTG vs DTF across durability, fabric compatibility, and cost -> Data clarity.
+         - Unit Economics -> Interactive Financial Simulator + Dynamic Waterfall Stacked Bar (Chart.js Canvas) -> Users adjust price, CAC, and RTO % to see immediate 1st purchase net loss/profit -> Solves the 68% brand failure insight.
+         - NO SVG graphics used. NO Mermaid JS used. All visuals rendered via Canvas API (Chart.js) and structured HTML/CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <span class="bg-slate-900 text-amber-400 font-black px-3 py-1 rounded-lg text-lg tracking-wider">T-ECO</span>
+                    <span class="font-bold text-slate-900 text-lg hidden sm:inline">Custom T-Shirt Market Intelligence</span>
+                </div>
+                <nav class="flex space-x-1 sm:space-x-4 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto py-2">
+                    <button onclick="scrollToSection('market-overview')" class="hover:text-indigo-600 px-2 py-1 transition-colors">Market</button>
+                    <button onclick="scrollToSection('competition')" class="hover:text-indigo-600 px-2 py-1 transition-colors">Competition</button>
+                    <button onclick="scrollToSection('ip-licensing')" class="hover:text-indigo-600 px-2 py-1 transition-colors">IP & Legal</button>
+                    <button onclick="scrollToSection('textile-tech')" class="hover:text-indigo-600 px-2 py-1 transition-colors">Textiles</button>
+                    <button onclick="scrollToSection('unit-economics')" class="hover:text-indigo-600 px-2 py-1 text-indigo-600 font-bold transition-colors">Unit Simulator</button>
+                    <button onclick="scrollToSection('strategy')" class="hover:text-indigo-600 px-2 py-1 transition-colors">Playbook</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+        <!-- SECTION 1: EXECUTIVE SUMMARY & MARKET TRAJECTORY -->
+        <section id="market-overview" class="space-y-6">
+            <div class="border-l-4 border-indigo-600 pl-4">
+                <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Section 1</span>
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Executive Summary & Global Market Trajectory</h1>
+                <p class="mt-2 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    This section presents the macroeconomic analysis of the online custom t-shirt industry. Explore how digital print advancements, pop-culture streaming IP, and youth demographic shifts drive expansion across global and regional markets, anchored by Asia-Pacific dominance.
+                </p>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-xs font-semibold text-slate-500 uppercase">2024 Global Market Valuation</div>
+                    <div class="text-3xl font-black text-slate-900 mt-1">$5.16B - $5.20B</div>
+                    <div class="text-xs text-emerald-600 font-medium mt-1">▲ Projecting $9.80B by 2034</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-xs font-semibold text-slate-500 uppercase">Global Forecast CAGR</div>
+                    <div class="text-3xl font-black text-indigo-600 mt-1">6.4% - 11.5%</div>
+                    <div class="text-xs text-slate-500 mt-1">Driven by identity apparel</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-xs font-semibold text-slate-500 uppercase">Asia-Pacific Market Share</div>
+                    <div class="text-3xl font-black text-amber-500 mt-1">39.4%</div>
+                    <div class="text-xs text-slate-500 mt-1">Dominant regional market locus</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-xs font-semibold text-slate-500 uppercase">D2C 6-Month Failure Rate</div>
+                    <div class="text-3xl font-black text-rose-600 mt-1">68%</div>
+                    <div class="text-xs text-rose-600 font-medium mt-1">Inverted unit economics & CAC</div>
+                </div>
+            </div>
+
+            <!-- Interactive Market Forecast Chart Section -->
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Market Revenue Growth Projections (2024 vs 2034)</h2>
+                        <p class="text-xs text-slate-500">Compare baseline valuation against upper-bound 10-year market trajectory forecasts.</p>
+                    </div>
+                    <div class="inline-flex rounded-lg bg-stone-100 p-1 text-xs font-semibold text-slate-600">
+                        <button id="btn-global-view" onclick="updateMarketChart('global')" class="px-3 py-1.5 rounded-md bg-white text-indigo-600 shadow-sm transition-all">Global Market ($B)</button>
+                        <button id="btn-india-view" onclick="updateMarketChart('india')" class="px-3 py-1.5 rounded-md hover:text-indigo-600 transition-all">India Market ($M)</button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="marketGrowthChart"></canvas>
+                </div>
+
+                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 text-xs text-slate-600 space-y-1">
+                    <span class="font-bold text-slate-900">Regional Stratification Insight (India):</span>
+                    <p>North India drives sheer consumer volume; South India leverages IT/startup hubs for corporate & event merchandise; West India (Tirupur/Surat ecosystems) dominates raw fabric knit and printing supply chains.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE COMPETITIVE LANDSCAPE & ARCHETYPES -->
+        <section id="competition" class="space-y-6">
+            <div class="border-l-4 border-amber-500 pl-4">
+                <span class="text-xs font-bold text-amber-500 tracking-wider uppercase">Section 2</span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">The Competitive Ecosystem & Market Archetypes</h1>
+                <p class="mt-2 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    The online t-shirt space is severely saturated. Winning requires clear market positioning to avoid ruinous price wars. Explore the four primary business archetypes below to compare business models, moats, and operational characteristics.
+                </p>
+            </div>
+
+            <!-- Archetype Selector & Dynamic Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <!-- Archetype Buttons -->
+                <div class="space-y-2 lg:col-span-1">
+                    <button onclick="selectArchetype('goliaths')" id="tab-goliaths" class="archetype-tab w-full text-left p-4 rounded-xl border border-indigo-600 bg-indigo-50 font-bold text-slate-900 text-sm transition-all">
+                        1. Licensed Fandom Goliaths
+                        <span class="block text-xs font-normal text-indigo-700 mt-1">e.g., The Souled Store</span>
+                    </button>
+                    <button onclick="selectArchetype('aggregators')" id="tab-aggregators" class="archetype-tab w-full text-left p-4 rounded-xl border border-stone-200 bg-white font-bold text-slate-900 text-sm hover:border-stone-300 transition-all">
+                        2. Volume & Trend Aggregators
+                        <span class="block text-xs font-normal text-slate-500 mt-1">e.g., Bewakoof</span>
+                    </button>
+                    <button onclick="selectArchetype('fastfashion')" id="tab-fastfashion" class="archetype-tab w-full text-left p-4 rounded-xl border border-stone-200 bg-white font-bold text-slate-900 text-sm hover:border-stone-300 transition-all">
+                        3. Fast-Fashion Conglomerates
+                        <span class="block text-xs font-normal text-slate-500 mt-1">e.g., Uniqlo UT, H&M, Ajio</span>
+                    </button>
+                    <button onclick="selectArchetype('niche')" id="tab-niche" class="archetype-tab w-full text-left p-4 rounded-xl border border-stone-200 bg-white font-bold text-slate-900 text-sm hover:border-stone-300 transition-all">
+                        4. Niche Community Specialists
+                        <span class="block text-xs font-normal text-slate-500 mt-1">e.g., Redwolf, ComicSense</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Detail Card -->
+                <div class="lg:col-span-3 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between" id="archetype-display">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: INTELLECTUAL PROPERTY & LICENSING BLUEPRINT -->
+        <section id="ip-licensing" class="space-y-6">
+            <div class="border-l-4 border-rose-500 pl-4">
+                <span class="text-xs font-bold text-rose-500 tracking-wider uppercase">Section 3</span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Intellectual Property, Fan Art & Licensing Dynamics</h1>
+                <p class="mt-2 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Selling anime, movie character apparel, and famous lines intersects directly with complex IP law. Relying on unauthorized "fan art" is a temporary legal arbitrage that fails standard Fair Use tests. Learn the legal realities and minimum guarantee frameworks required to license official IP.
+                </p>
+            </div>
+
+            <!-- Myth vs Reality Interactive Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Legal Reality Check -->
+                <div class="bg-rose-50 border border-rose-200 p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-2 text-rose-800 font-bold text-base">
+                        <span class="bg-rose-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-black">!</span>
+                        The "Fan Art" Commercial Sale Myth
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Creating original fan art of copyrighted characters (e.g., Marvel, anime icons) does <strong>NOT</strong> grant commercial selling rights. Courts evaluate <em>Fair Use</em> based on commercial nature, original work impact, and market displacement. Selling t-shirts fails Fair Use completely, exposing sellers to DMCA takedowns, asset seizures, and severe statutory damages.
+                    </p>
+                    <div class="bg-white p-4 rounded-xl border border-rose-200 text-xs space-y-2">
+                        <div class="font-bold text-slate-900">Enforcement Trigger Points:</div>
+                        <ul class="list-disc list-inside text-slate-600 space-y-1">
+                            <li>Automated IP Enforcement Web-Crawlers (Disney, Warner, Japanese Studios)</li>
+                            <li>Social Ad Scaling Visibility (Meta & TikTok Ads trigger manual takedown notices)</li>
+                            <li>Customs & Payment Gateway freezing (Stripe, Razorpay compliance audits)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Licensing Economics Calculator & Requirements -->
+                <div class="bg-white border border-stone-200 p-6 rounded-2xl space-y-4 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-base">Official Licensing Financial Framework</h3>
+                    <p class="text-xs text-slate-600">Estimate the upfront Minimum Guarantee (MG) and ongoing royalties required to secure official brand rights.</p>
+                    
+                    <div class="space-y-3 bg-stone-50 p-4 rounded-xl border border-stone-200 text-xs">
+                        <div>
+                            <label class="font-semibold text-slate-700 block mb-1">Target IP Franchise Level:</label>
+                            <select id="ip-tier-select" onchange="calculateLicensingCost()" class="w-full bg-white border border-stone-300 rounded-lg p-2 font-medium">
+                                <option value="top">Top-Tier Global (Marvel, Dragon Ball, Pokémon)</option>
+                                <option value="mid">Mid-Tier / Niche Anime (Jujutsu Kaisen, Demon Slayer sub-licensing)</option>
+                                <option value="indie">Emerging / Local Pop Culture Studio</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-stone-200">
+                            <div>
+                                <span class="text-slate-500 block">Typical Royalty Rate:</span>
+                                <span id="royalty-rate-display" class="font-black text-indigo-600 text-sm">8% - 12%</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block">Upfront Min. Guarantee (MG):</span>
+                                <span id="mg-cost-display" class="font-black text-slate-900 text-sm">$500,000 - $2,000,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-slate-500 leading-relaxed">
+                        <span class="font-bold text-slate-800">Alternative Low-Risk IP Strategies:</span> Original typography/quotes (avoid exact movie script quotes), colloquial humor, and public domain historical/artistic characters bypass licensing requirements entirely while preserving 100% gross profit margins.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pitch Package Steps -->
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wider">The 5-Step Official Licensing Pitch Architecture</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs">
+                    <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                        <span class="font-bold text-indigo-600 block mb-1">1. Company Profile</span>
+                        ISO/WRAP manufacturing credentials & distribution track record.
+                    </div>
+                    <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                        <span class="font-bold text-indigo-600 block mb-1">2. Line Proposal</span>
+                        High-fidelity mockups adhering strictly to licensor brand guidelines.
+                    </div>
+                    <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                        <span class="font-bold text-indigo-600 block mb-1">3. Retail Reach</span>
+                        Documented online D2C footprint & physical retail retail footprint.
+                    </div>
+                    <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                        <span class="font-bold text-indigo-600 block mb-1">4. Financial Solvency</span>
+                        Proof of capital to guarantee non-refundable MG advance.
+                    </div>
+                    <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                        <span class="font-bold text-indigo-600 block mb-1">5. Dedicated Promo Plan</span>
+                        Co-marketing budget commitments for franchise release windows.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TEXTILE ENGINEERING & PRODUCTION ECONOMICS -->
+        <section id="textile-tech" class="space-y-6">
+            <div class="border-l-4 border-indigo-600 pl-4">
+                <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Section 4</span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Textile Engineering & Printing Modalities</h1>
+                <p class="mt-2 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Product quality and print longevity directly dictate return rates (RTO) and customer retention. Analyze the substrate benchmark (180-220 GSM Combed Bio-washed Cotton) and compare Screen Printing, DTG, and DTF technologies.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Tech Comparison Chart -->
+                <div class="lg:col-span-6 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-slate-900 text-base">Print Technology Feature Matrix</h3>
+                        <span class="text-xs bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full font-semibold">DTF Leading POD Scale</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="printTechRadarChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 text-center">Comparing attributes on a scale of 1 (Low) to 10 (Highest Performance)</p>
+                </div>
+
+                <!-- Comparative Table -->
+                <div class="lg:col-span-6 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4 overflow-x-auto">
+                    <h3 class="font-bold text-slate-900 text-base">Technical Printing Spec Comparison</h3>
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-stone-200 bg-stone-50 text-slate-700">
+                                <th class="p-2 font-bold">Attribute</th>
+                                <th class="p-2 font-bold text-slate-900">Screen Print</th>
+                                <th class="p-2 font-bold text-indigo-600">DTG (Direct-Garment)</th>
+                                <th class="p-2 font-bold text-amber-600">DTF (Direct-Film)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-100 text-slate-600">
+                            <tr>
+                                <td class="p-2 font-semibold text-slate-800">Optimal Run</td>
+                                <td class="p-2">Bulk (50+ units)</td>
+                                <td class="p-2">On-Demand / Small</td>
+                                <td class="p-2 font-bold text-slate-900">Universal / POD Scale</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-semibold text-slate-800">Fabric Versatility</td>
+                                <td class="p-2">Cotton & Blends</td>
+                                <td class="p-2 text-rose-600 font-semibold">100% Cotton Only</td>
+                                <td class="p-2 text-emerald-600 font-bold">Universal (Cotton, Poly, Nylon)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-semibold text-slate-800">Pre-treatment</td>
+                                <td class="p-2">None</td>
+                                <td class="p-2 text-rose-600">Required (Causes stains/bottlenecks)</td>
+                                <td class="p-2 text-emerald-600">None</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-semibold text-slate-800">White Opacity</td>
+                                <td class="p-2">Excellent</td>
+                                <td class="p-2">Muted on dark fabric</td>
+                                <td class="p-2 font-bold text-slate-900">Outstanding (Vibrant darks)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-semibold text-slate-800">Hand Feel</td>
+                                <td class="p-2">Medium / Soft</td>
+                                <td class="p-2 font-bold text-indigo-600">Softest (In-fiber ink)</td>
+                                <td class="p-2">Slightly noticeable transfer layer</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-semibold text-slate-800">Wash Durability</td>
+                                <td class="p-2">100+ Cycles</td>
+                                <td class="p-2">20-30 Cycles (Fades)</td>
+                                <td class="p-2 font-bold text-slate-900">50-100 Cycles (Cold wash)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Fabric Sourcing Substrate Callout -->
+            <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-6 rounded-2xl shadow-md space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold tracking-widest text-amber-400 uppercase">Substrate Gold Standard</span>
+                    <span class="text-xs bg-slate-800 text-stone-300 px-3 py-1 rounded-full">Tirupur Fabric Ecosystem</span>
+                </div>
+                <h3 class="text-lg font-bold">180 – 220 GSM 100% Combed Compact Bio-Washed Cotton</h3>
+                <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">
+                    Combing mechanically removes short micro-fibers, leaving ultra-smooth long yarn. The subsequent <strong>Bio-Wash</strong> enzymatic treatment removes fuzz, prevents pilling, retains color vibrancy, and creates a soft premium hand-feel essential for D2C streetwear. OEKO-TEX® STANDARD 100 compliance guarantees zero toxic chemical residue.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: THE D2C UNIT ECONOMICS CRISIS & LIVE SIMULATOR -->
+        <section id="unit-economics" class="space-y-6">
+            <div class="border-l-4 border-rose-600 pl-4">
+                <span class="text-xs font-bold text-rose-600 tracking-wider uppercase">Section 5</span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">D2C Unit Economics & Profitability Simulator</h1>
+                <p class="mt-2 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    <strong>Why 68% of D2C apparel brands fail by month 6:</strong> Soaring Meta/Google CAC (+140%-180%), high Return to Origin (RTO) on Cash-on-Delivery (COD) orders (15-38%), and hidden packaging/logistics fees mean 99% of initial sales lose money. Adjust the parameters below to test your financial viability!
+                </p>
+            </div>
+
+            <!-- Interactive Simulator Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Inputs & Sliders (5 Cols) -->
+                <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-5">
+                    <h3 class="font-bold text-slate-900 text-base border-b border-stone-200 pb-2">Simulator Variable Controls</h3>
+                    
+                    <!-- Slider: Selling Price -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label class="text-slate-700">Retail Selling Price (Ex-Tax):</label>
+                            <span id="val-price" class="text-indigo-600 font-bold">₹899</span>
+                        </div>
+                        <input type="range" id="input-price" min="499" max="1799" step="50" value="899" oninput="runUnitSimulator()" class="w-full">
+                    </div>
+
+                    <!-- Slider: CAC -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label class="text-slate-700">Customer Acquisition Cost (CAC):</label>
+                            <span id="val-cac" class="text-rose-600 font-bold">₹850</span>
+                        </div>
+                        <input type="range" id="input-cac" min="300" max="1500" step="25" value="850" oninput="runUnitSimulator()" class="w-full">
+                    </div>
+
+                    <!-- Slider: RTO Rate -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label class="text-slate-700">RTO Rate (Return to Origin %):</label>
+                            <span id="val-rto" class="text-amber-600 font-bold">20%</span>
+                        </div>
+                        <input type="range" id="input-rto" min="5" max="40" step="1" value="20" oninput="runUnitSimulator()" class="w-full">
+                    </div>
+
+                    <!-- Dropdown: Production Setup -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-slate-700 block">Fulfillment Model & Substrate:</label>
+                        <select id="input-fulfillment" onchange="runUnitSimulator()" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-2 text-xs font-medium">
+                            <option value="pod_dtf">POD Aggregator (DTF - Blank ₹170 + Print ₹150)</option>
+                            <option value="inhouse_dtf">In-House DTF Machine (Blank ₹165 + Print ₹90)</option>
+                            <option value="screen_bulk">Bulk Screen Print (Blank ₹140 + Print ₹50 - Min 100 Units)</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-stone-50 p-3 rounded-xl border border-stone-200 text-xs text-slate-600">
+                        <span class="font-bold text-slate-800">Fixed Cost Assumptions:</span> Forward Logistics: ₹65 | Packaging: ₹25 | Gateway Surcharge: ₹35.
+                    </div>
+                </div>
+
+                <!-- Simulation Output & Financial Waterfall (7 Cols) -->
+                <div class="lg:col-span-7 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <h3 class="font-bold text-slate-900 text-base">First-Sale Unit Profitability Output</h3>
+                            <div id="profit-badge" class="px-3 py-1 rounded-full font-black text-xs text-white bg-rose-600 w-max">
+                                NET LOSS: -₹476 per shirt
+                            </div>
+                        </div>
+
+                        <!-- Waterfall Stacked Chart -->
+                        <div class="chart-container">
+                            <canvas id="unitEconomicsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Summary KPI Box -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 border-t border-stone-200 text-xs">
+                        <div class="bg-stone-50 p-3 rounded-xl">
+                            <span class="text-slate-500 block">Gross Contribution:</span>
+                            <span id="out-contribution" class="font-bold text-slate-900 text-sm">₹374</span>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-xl">
+                            <span class="text-slate-500 block">1st Order Margin %:</span>
+                            <span id="out-margin" class="font-bold text-rose-600 text-sm">-52.9%</span>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-xl col-span-2 sm:col-span-1">
+                            <span class="text-slate-500 block">Repeat Purchases to Break Even:</span>
+                            <span id="out-breakeven" class="font-bold text-indigo-600 text-sm">2.3 Orders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: STRATEGIC PLAYBOOK & RETENTION ARCHITECTURE -->
+        <section id="strategy" class="space-y-6">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase">Section 6</span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Strategic Playbook: LTV & Retention Architecture</h1>
+                <p class="mt-2 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Because first-order acquisition loses money, survival requires an operational strategy built around customer Lifetime Value (LTV), Conversion Rate Optimization (CRO), and zero-CAC repeat sales.
+                </p>
+            </div>
+
+            <!-- Action Pillars -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Pillar 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-base">1</div>
+                    <h3 class="font-bold text-slate-900 text-base">Community Architecture over Funnels</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Build a core advocate community of 500-2,000 highly engaged fans via Discord servers, Instagram Reels drops, and subculture Reddit groups <em>before</em> spending heavily on performance marketing. This guarantees baseline organic, high-margin revenue.
+                    </p>
+                    <div class="text-xs font-semibold text-emerald-600 bg-emerald-50 p-2.5 rounded-lg border border-emerald-100">
+                        Target: Achieve >40% Repeat Purchase Rate via limited drops.
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-black text-base">2</div>
+                    <h3 class="font-bold text-slate-900 text-base">Aggressive Cart Recovery (WhatsApp)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Deploy automated WhatsApp API integrations (Interakt/Wati) for abandoned cart sequences. WhatsApp yields significantly higher open rates (80-90%) than email, converting high-intent traffic and directly reducing blended CAC.
+                    </p>
+                    <div class="text-xs font-semibold text-indigo-600 bg-indigo-50 p-2.5 rounded-lg border border-indigo-100">
+                        Technical CRO: Mobile load speed <1.5s prevents 20% drop-off.
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-base">3</div>
+                    <h3 class="font-bold text-slate-900 text-base">Cohort Acquisition Filtering</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Do not optimize ad campaigns for the lowest initial cost per click. Filter and reallocate spend to traffic channels that yield low RTO rates (<15%) and high downstream 90-day retention, even if initial CAC appears higher.
+                    </p>
+                    <div class="text-xs font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-lg border border-amber-100">
+                        Goal Benchmark: Achieve min. LTV : CAC Ratio of 3 : 1.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-stone-400 border-t border-slate-800 py-8 mt-16 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="font-bold text-white text-sm">Online Custom T-Shirt Market Intelligence</span>
+                <p class="text-stone-500 mt-0.5">Comprehensive industry analysis & unit economics modeling.</p>
+            </div>
+            <div class="text-stone-500 text-center sm:text-right">
+                Single-Page Interactive Strategic Tool | Canvas Chart Engine
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic & Chart Engine -->
+    <script>
+        // Global Smooth Scroll Helper
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // ==========================================
+        // SECTION 1: MARKET GROWTH CHART ENGINE
+        // ==========================================
+        let marketChartInstance = null;
+        const marketData = {
+            global: {
+                labels: ['2024 Valuation', '2034 Forecast (Lower Bound)', '2034 Forecast (Upper Bound)'],
+                values: [5.18, 9.03, 9.80],
+                unit: '$ Billion',
+                color: 'rgba(79, 70, 229, 0.85)'
+            },
+            india: {
+                labels: ['2024 Valuation', '2034 Forecast (Lower Bound)', '2034 Forecast (Upper Bound)'],
+                values: [373.5, 407.9, 1160.0],
+                unit: '$ Million',
+                color: 'rgba(245, 158, 11, 0.85)'
+            }
+        };
+
+        function initMarketChart() {
+            const ctx = document.getElementById('marketGrowthChart').getContext('2d');
+            marketChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: marketData.global.labels,
+                    datasets: [{
+                        label: 'Market Size ($ Billion)',
+                        data: marketData.global.values,
+                        backgroundColor: [
+                            'rgba(79, 70, 229, 0.7)',
+                            'rgba(79, 70, 229, 0.85)',
+                            'rgba(79, 70, 229, 1.0)'
+                        ],
+                        borderRadius: 8,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Market Size: ${context.parsed.y} ${marketChartInstance.options.customUnit || '$ Billion'}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(226, 232, 240, 0.6)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+            marketChartInstance.options.customUnit = '$ Billion';
+        }
+
+        function updateMarketChart(region) {
+            const btnGlobal = document.getElementById('btn-global-view');
+            const btnIndia = document.getElementById('btn-india-view');
+
+            if (region === 'global') {
+                btnGlobal.className = 'px-3 py-1.5 rounded-md bg-white text-indigo-600 shadow-sm transition-all';
+                btnIndia.className = 'px-3 py-1.5 rounded-md hover:text-indigo-600 transition-all';
+                marketChartInstance.data.datasets[0].data = marketData.global.values;
+                marketChartInstance.data.datasets[0].backgroundColor = [
+                    'rgba(79, 70, 229, 0.7)', 'rgba(79, 70, 229, 0.85)', 'rgba(79, 70, 229, 1.0)'
+                ];
+                marketChartInstance.options.customUnit = '$ Billion';
+            } else {
+                btnIndia.className = 'px-3 py-1.5 rounded-md bg-white text-amber-600 shadow-sm transition-all';
+                btnGlobal.className = 'px-3 py-1.5 rounded-md hover:text-indigo-600 transition-all';
+                marketChartInstance.data.datasets[0].data = marketData.india.values;
+                marketChartInstance.data.datasets[0].backgroundColor = [
+                    'rgba(245, 158, 11, 0.7)', 'rgba(245, 158, 11, 0.85)', 'rgba(245, 158, 11, 1.0)'
+                ];
+                marketChartInstance.options.customUnit = '$ Million';
+            }
+            marketChartInstance.update();
+        }
+
+        // ==========================================
+        // SECTION 2: COMPETITIVE ARCHETYPE DATA
+        // ==========================================
+        const archetypes = {
+            goliaths: {
+                title: "1. The Licensed Fandom Goliaths",
+                example: "e.g., The Souled Store (25-30% Market Share)",
+                revenue: "₹600 Crore Run-Rate",
+                strategy: "Massive IP aggregation (150+ official licenses including Marvel, Disney, IPL, Netflix, Anime). High ASPs defended by exclusive legitimate merchandise.",
+                moat: "Subscription membership program (1M+ active members) driving 60% repeat purchase rate, insulating against ad CAC inflation.",
+                weakness: "Extremely heavy upfront Minimum Guarantees (MGs) and strict licensor artwork approval bottlenecks."
+            },
+            aggregators: {
+                title: "2. Volume and Trend Aggregators",
+                example: "e.g., Bewakoof",
+                revenue: "High-Volume Mass Segment",
+                strategy: "Prioritizes rapid trend-cycling, typography, colloquial humor, and viral internet memes ('lines written on shirts') over expensive licensed IP.",
+                moat: "Price leadership and rapid operational turnarounds (design-to-ship in 72 hours).",
+                weakness: "Low brand stickiness, intense price competition from marketplace private labels, vulnerable to performance ad cost spikes."
+            },
+            fastfashion: {
+                title: "3. Fast-Fashion Conglomerates & Marketplaces",
+                example: "e.g., Uniqlo UT, H&M, Myntra/Ajio Private Labels",
+                revenue: "Multi-Billion Global Sourcing Scale",
+                strategy: "Leverages global apparel supply chains to produce licensed graphic tees at low per-unit costs supported by massive mall footfall.",
+                moat: "Insurmountable economies of scale and direct access to rich platform search data.",
+                weakness: "Slower localized niche trend adoption compared to agile D2C specialized brands."
+            },
+            niche: {
+                title: "4. Niche Community Specialists",
+                example: "e.g., Redwolf, ComicSense",
+                revenue: "Focused Subculture Capital",
+                strategy: "Cultivates deep community loyalty among hardcore anime and manga enthusiasts who reject generic or bootlegged merchandise.",
+                moat: "High organic advocacy, limited-edition drops, Discord/Reddit integration, culturally authentic designs.",
+                weakness: "Restricted overall TAM (Total Addressable Market) ceiling compared to mass-market aggregators."
+            }
+        };
+
+        function selectArchetype(key) {
+            // Update tabs UI
+            document.querySelectorAll('.archetype-tab').forEach(tab => {
+                tab.className = "archetype-tab w-full text-left p-4 rounded-xl border border-stone-200 bg-white font-bold text-slate-900 text-sm hover:border-stone-300 transition-all";
+            });
+            const activeTab = document.getElementById(`tab-${key}`);
+            if (activeTab) {
+                activeTab.className = "archetype-tab w-full text-left p-4 rounded-xl border border-indigo-600 bg-indigo-50 font-bold text-slate-900 text-sm transition-all";
+            }
+
+            // Populate Details
+            const data = archetypes[key];
+            const container = document.getElementById('archetype-display');
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-slate-900">${data.title}</h3>
+                            <span class="text-xs font-bold text-indigo-600">${data.example}</span>
+                        </div>
+                        <span class="text-xs bg-stone-100 text-slate-700 font-bold px-3 py-1 rounded-full">${data.revenue}</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+                            <span class="font-bold text-slate-900 block mb-1">Core Strategy</span>
+                            <p class="text-slate-600 leading-relaxed">${data.strategy}</p>
+                        </div>
+                        <div class="p-3 bg-indigo-50 rounded-xl border border-indigo-100">
+                            <span class="font-bold text-indigo-900 block mb-1">Primary Competitive Moat</span>
+                            <p class="text-indigo-800 leading-relaxed">${data.moat}</p>
+                        </div>
+                        <div class="p-3 bg-rose-50 rounded-xl border border-rose-100">
+                            <span class="font-bold text-rose-900 block mb-1">Structural Weakness</span>
+                            <p class="text-rose-800 leading-relaxed">${data.weakness}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // SECTION 3: IP LICENSING CALCULATOR
+        // ==========================================
+        function calculateLicensingCost() {
+            const tier = document.getElementById('ip-tier-select').value;
+            const rateDisplay = document.getElementById('royalty-rate-display');
+            const mgDisplay = document.getElementById('mg-cost-display');
+
+            if (tier === 'top') {
+                rateDisplay.textContent = '8% - 12%';
+                mgDisplay.textContent = '$500,000 - $2,000,000';
+            } else if (tier === 'mid') {
+                rateDisplay.textContent = '8% - 10%';
+                mgDisplay.textContent = '$50,000 - $150,000';
+            } else {
+                rateDisplay.textContent = '5% - 8%';
+                mgDisplay.textContent = '$10,000 - $35,000';
+            }
+        }
+
+        // ==========================================
+        // SECTION 4: PRINT TECH RADAR CHART ENGINE
+        // ==========================================
+        function initPrintTechChart() {
+            const ctx = document.getElementById('printTechRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Durability', 'Fabric Versatility', 'Color Opacity', 'Soft Hand Feel', 'Low Setup Cost', 'POD Scale'],
+                    datasets: [
+                        {
+                            label: 'DTF (Direct-to-Film)',
+                            data: [9, 10, 10, 7, 9, 10],
+                            borderColor: 'rgba(245, 158, 11, 1)',
+                            backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                            pointBackgroundColor: 'rgba(245, 158, 11, 1)'
+                        },
+                        {
+                            label: 'DTG (Direct-to-Garment)',
+                            data: [4, 3, 6, 10, 8, 7],
+                            borderColor: 'rgba(79, 70, 229, 1)',
+                            backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                            pointBackgroundColor: 'rgba(79, 70, 229, 1)'
+                        },
+                        {
+                            label: 'Screen Printing',
+                            data: [10, 8, 9, 7, 2, 3],
+                            borderColor: 'rgba(15, 23, 42, 1)',
+                            backgroundColor: 'rgba(15, 23, 42, 0.1)',
+                            pointBackgroundColor: 'rgba(15, 23, 42, 1)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 10,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        // ==========================================
+        // SECTION 5: D2C UNIT ECONOMICS SIMULATOR ENGINE
+        // ==========================================
+        let unitChartInstance = null;
+
+        function initUnitEconomicsChart() {
+            const ctx = document.getElementById('unitEconomicsChart').getContext('2d');
+            unitChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Gross Revenue', 'COGS & Print', 'Logistics & RTO', 'Ad CAC', 'Net Profit / Loss'],
+                    datasets: [{
+                        label: 'INR Breakdown',
+                        data: [899, -320, -185, -850, -456],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.85)',
+                            'rgba(100, 116, 139, 0.85)',
+                            'rgba(245, 158, 11, 0.85)',
+                            'rgba(225, 29, 72, 0.85)',
+                            'rgba(225, 29, 72, 1.0)'
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ₹${context.parsed.y}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { grid: { color: 'rgba(226, 232, 240, 0.6)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function runUnitSimulator() {
+            const price = parseFloat(document.getElementById('input-price').value);
+            const cac = parseFloat(document.getElementById('input-cac').value);
+            const rtoRate = parseFloat(document.getElementById('input-rto').value) / 100;
+            const fulfillment = document.getElementById('input-fulfillment').value;
+
+            // UI Display updates
+            document.getElementById('val-price').textContent = `₹${price}`;
+            document.getElementById('val-cac').textContent = `₹${cac}`;
+            document.getElementById('val-rto').textContent = `${(rtoRate * 100).toFixed(0)}%`;
+
+            // Production cost breakdown based on fulfillment model
+            let cogs = 170;
+            let print = 150;
+
+            if (fulfillment === 'inhouse_dtf') {
+                cogs = 165;
+                print = 90;
+            } else if (fulfillment === 'screen_bulk') {
+                cogs = 140;
+                print = 50;
+            }
+
+            const totalCOGS = cogs + print;
+            const packagingLogistics = 65 + 25 + 35; // Forward shipping, box, gateway
+            const rtoBuffer = price * rtoRate * 0.45; // Estimated RTO freight + damage absorption
+            const totalOperationalCosts = totalCOGS + packagingLogistics + rtoBuffer;
+
+            const grossContribution = price - totalOperationalCosts;
+            const netProfitFirstSale = grossContribution - cac;
+            const marginPercent = ((netProfitFirstSale / price) * 100).toFixed(1);
+
+            // Compute break-even repeat orders required
+            let ordersToBreakeven = 0;
+            if (netProfitFirstSale >= 0) {
+                ordersToBreakeven = 1.0;
+            } else {
+                ordersToBreakeven = (1 + (Math.abs(netProfitFirstSale) / grossContribution)).toFixed(1);
+            }
+
+            // Update Summary KPI UI
+            document.getElementById('out-contribution').textContent = `₹${Math.round(grossContribution)}`;
+            const marginEl = document.getElementById('out-margin');
+            marginEl.textContent = `${marginPercent}%`;
+            marginEl.className = netProfitFirstSale >= 0 ? "font-bold text-emerald-600 text-sm" : "font-bold text-rose-600 text-sm";
+
+            document.getElementById('out-breakeven').textContent = `${ordersToBreakeven} Orders`;
+
+            const badge = document.getElementById('profit-badge');
+            if (netProfitFirstSale >= 0) {
+                badge.textContent = `NET PROFIT: +₹${Math.round(netProfitFirstSale)} per shirt`;
+                badge.className = "px-3 py-1 rounded-full font-black text-xs text-white bg-emerald-600 w-max";
+            } else {
+                badge.textContent = `NET LOSS: -₹${Math.round(Math.abs(netProfitFirstSale))} per shirt`;
+                badge.className = "px-3 py-1 rounded-full font-black text-xs text-white bg-rose-600 w-max";
+            }
+
+            // Update Chart Data
+            if (unitChartInstance) {
+                unitChartInstance.data.datasets[0].data = [
+                    price,
+                    -Math.round(totalCOGS),
+                    -Math.round(packagingLogistics + rtoBuffer),
+                    -cac,
+                    Math.round(netProfitFirstSale)
+                ];
+                unitChartInstance.data.datasets[0].backgroundColor[4] = netProfitFirstSale >= 0 ? 'rgba(16, 185, 129, 1.0)' : 'rgba(225, 29, 72, 1.0)';
+                unitChartInstance.update();
+            }
+        }
+
+        // Initializer on Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            initMarketChart();
+            selectArchetype('goliaths');
+            initPrintTechChart();
+            initUnitEconomicsChart();
+            runUnitSimulator();
+        });
+    </script>
+</body>
+</html>

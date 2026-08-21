@@ -1,0 +1,92 @@
+/* ============================================================
+   EXHIBIT A — Design Tokens (§4)
+   Single source of truth for every color, typeface, and spacing
+   value in the system. Named to match the design brief.
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ── 4.1 Base Palette (Site Shell) ── */
+  --color-stone:   #11100C;   /* Primary background — gallery wall */
+  --color-paper:   #1C1A14;   /* Cards, placards, elevated surfaces */
+  --color-ink:     #FAFAF7;   /* Primary text, wordmark, line art */
+  --color-vitrine: #050505;   /* Dark stage behind spotlit products */
+  --color-dust:    #A3A096;   /* Secondary text, captions, metadata */
+  --color-brass:   #CBAA7A;   /* Sparse signature accent — foil/plaque */
+
+  /* ── 4.2 Edition Accent System ── */
+  --accent-anime:       #D62839;  /* Hanko Red */
+  --accent-cinema:      #E3A008;  /* Marquee Amber */
+  --accent-commissions: #2C4A6E;  /* Ribbon Blue */
+
+  /* Text-safe darker tints for accessibility (§12) */
+  --accent-anime-text:       #B8212F;
+  --accent-cinema-text:      #9A6D05;
+  --accent-commissions-text: #1E3550;
+
+  /* ── Current wing accent (overridden by [data-wing]) ── */
+  --accent-current: var(--color-brass);
+
+  /* ── 4.3 Typography ── */
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Archivo', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* Type scale (rem @ 16px base) */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-md:   1.25rem;   /* 20px */
+  --text-lg:   1.75rem;   /* 28px */
+  --text-xl:   2.5rem;    /* 40px */
+  --text-2xl:  4rem;      /* 64px */
+  --text-3xl:  6rem;      /* 96px */
+  --text-hero: 8.75rem;   /* 140px */
+
+  /* ── 4.4 Grid & Spacing ── */
+  --space-unit: 8px;
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  40px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-15: 120px;
+
+  --grid-columns: 12;
+  --grid-gap: var(--space-3);
+  --margin-desktop: var(--space-12);
+  --margin-mobile:  var(--space-3);
+
+  /* ── 4.5 Shape & Elevation ── */
+  --radius-none: 0px;
+  --radius-input: 2px;  /* Exception for form inputs / filter tags */
+
+  --shadow-plaque: 4px 4px 0 rgba(0, 0, 0, 0.9);
+  --shadow-plaque-sm: 3px 3px 0 rgba(0, 0, 0, 0.85);
+  --shadow-brass: 4px 4px 0 var(--color-brass);
+
+  /* ── Transitions ── */
+  --transition-fast: 120ms ease;
+  --transition-medium: 300ms ease;
+  --transition-spotlight: 380ms linear;
+}
+
+/* ── Wing-level accent theming (§14 build note) ── */
+[data-wing="anime"] {
+  --accent-current: var(--accent-anime);
+  --accent-current-text: var(--accent-anime-text);
+}
+[data-wing="cinema"] {
+  --accent-current: var(--accent-cinema);
+  --accent-current-text: var(--accent-cinema-text);
+}
+[data-wing="commissions"] {
+  --accent-current: var(--accent-commissions);
+  --accent-current-text: var(--accent-commissions-text);
+}

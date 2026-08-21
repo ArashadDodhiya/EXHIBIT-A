@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-wing="commissions">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wing III — Commissions | EXHIBIT A</title>
+  <meta name="description" content="Your words, your line, your piece. Commission a garment with text that means something to you — set in considered type, pressed into premium cotton.">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <nav class="site-header__nav-left">
+        <button class="site-header__directory-btn" data-directory-open aria-label="Open directory navigation">
+          <span class="hamburger"><span></span><span></span><span></span></span>
+          Directory
+        </button>
+      </nav>
+      <div class="site-header__wordmark">
+        <a href="index.html">EXHIBIT A</a>
+      </div>
+      <nav class="site-header__nav-right">
+        <a href="collection.html" class="site-header__collection-link">
+          Collection <span class="site-header__collection-count">(0)</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- DIRECTORY OVERLAY -->
+  <div class="directory-overlay" id="directory-overlay" role="dialog" aria-label="Site directory">
+    <button class="directory-overlay__close" data-directory-close aria-label="Close directory">Close ✕</button>
+    <nav class="directory-overlay__nav">
+      <a href="wing-anime.html" class="directory-overlay__link" data-wing="anime">
+        <span class="wing-dot" style="background-color: #D62839"></span>Wing I — Anime
+      </a>
+      <a href="wing-cinema.html" class="directory-overlay__link" data-wing="cinema">
+        <span class="wing-dot" style="background-color: #E3A008"></span>Wing II — Cinema
+      </a>
+      <a href="wing-commissions.html" class="directory-overlay__link" data-wing="commissions">
+        <span class="wing-dot" style="background-color: #2C4A6E"></span>Wing III — Commissions
+      </a>
+      <a href="index.html" class="directory-overlay__link">Permanent Collection</a>
+      <div class="directory-overlay__meta">
+        <a href="about.html">About the Gallery</a> &nbsp;·&nbsp;
+        <a href="collection.html">Your Collection</a>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- COMMISSIONS STUDIO -->
+  <div class="page-container">
+    <div class="wing-header">
+      <p class="wing-header__number font-mono">Wing III</p>
+      <h1 class="wing-header__title">Commissions</h1>
+      <p class="wing-header__statement">
+        Your words, your line, your piece. Commission a garment with text that means something to you — set in considered type, pressed into premium cotton.
+      </p>
+    </div>
+
+    <div class="wing-content">
+      <div class="commission-studio">
+
+        <!-- Live Preview -->
+        <div class="commission-preview" id="commission-preview">
+          <div class="commission-preview__garment">
+            <div class="commission-preview__silhouette">
+              <span class="commission-preview__placement-label commission-preview__placement-label--chest" style="opacity: 1;">Chest</span>
+              <span class="commission-preview__placement-label commission-preview__placement-label--back">Back</span>
+              <p class="commission-preview__text font-serif" id="commission-preview-text" style="opacity: 0.4;">Your words here</p>
+            </div>
+          </div>
+          <!-- Garment type label -->
+          <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+            <span class="font-mono" style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(250,250,247,0.3);" id="commission-garment-label">Tee</span>
+          </div>
+        </div>
+
+        <!-- Form Panel -->
+        <div class="commission-form">
+          <h2 class="commission-form__title font-display">Commission a piece</h2>
+          <p class="commission-form__subtitle">
+            Enter your line below. The preview updates as you type.
+          </p>
+
+          <!-- Text Input -->
+          <div class="commission-field">
+            <label class="commission-field__label" for="commission-text">Your line</label>
+            <input
+              type="text"
+              id="commission-text"
+              class="commission-field__input"
+              placeholder="What do you want it to say?"
+              maxlength="80"
+              autocomplete="off"
+            >
+          </div>
+
+          <!-- Garment Type -->
+          <div class="commission-field">
+            <label class="commission-field__label">Garment</label>
+            <div class="toggle-group">
+              <button class="toggle-btn is-active" data-garment="Tee">Tee</button>
+              <button class="toggle-btn" data-garment="Hoodie">Hoodie</button>
+              <button class="toggle-btn" data-garment="Crewneck">Crewneck</button>
+            </div>
+          </div>
+
+          <!-- Placement -->
+          <div class="commission-field">
+            <label class="commission-field__label">Placement</label>
+            <div class="toggle-group">
+              <button class="toggle-btn is-active" data-placement="chest">Chest</button>
+              <button class="toggle-btn" data-placement="back">Back</button>
+              <button class="toggle-btn" data-placement="sleeve">Sleeve</button>
+            </div>
+          </div>
+
+          <!-- Type Style (3 curated options) -->
+          <div class="commission-field">
+            <label class="commission-field__label">Type style</label>
+            <div class="toggle-group">
+              <button class="toggle-btn font-toggle is-active" data-font="serif">Serif</button>
+              <button class="toggle-btn font-toggle" data-font="sans">Sans</button>
+              <button class="toggle-btn font-toggle" data-font="mono">Mono</button>
+            </div>
+          </div>
+
+          <!-- Size -->
+          <div class="commission-field">
+            <label class="commission-field__label">Size</label>
+            <div class="size-selector">
+              <button class="size-btn" data-size="S">S</button>
+              <button class="size-btn is-active" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+              <button class="size-btn" data-size="XXL">XXL</button>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+          <p class="commission-price">$42</p>
+
+          <button class="btn btn--primary" id="commission-add-btn" onclick="addCommissionToCart()">
+            Add to collection
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__block-title">Gallery Information</p>
+        <address class="site-footer__address">
+          Open 24 hours — online only<br>
+          <a href="mailto:hello@exhibita.co">hello@exhibita.co</a><br>
+          Shipping worldwide
+        </address>
+      </div>
+      <div>
+        <p class="site-footer__block-title">Wings</p>
+        <nav class="site-footer__links">
+          <a href="wing-anime.html" class="site-footer__link">Wing I — Anime</a>
+          <a href="wing-cinema.html" class="site-footer__link">Wing II — Cinema</a>
+          <a href="wing-commissions.html" class="site-footer__link">Wing III — Commissions</a>
+          <a href="index.html" class="site-footer__link">Permanent Collection</a>
+        </nav>
+      </div>
+      <div>
+        <p class="site-footer__block-title">Visit</p>
+        <nav class="site-footer__links">
+          <a href="about.html" class="site-footer__link">About the Gallery</a>
+          <a href="collection.html" class="site-footer__link">Your Collection</a>
+        </nav>
+      </div>
+      <div class="site-footer__legal">
+        © 2026 Exhibit A. All exhibits are original works. Free shipping on orders over $100.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/commissions.js"></script>
+  <script>
+    function addCommissionToCart() {
+      const text = document.getElementById('commission-text').value.trim();
+      if (!text) {
+        document.getElementById('commission-text').focus();
+        document.getElementById('commission-text').style.borderColor = '#D62839';
+        setTimeout(() => {
+          document.getElementById('commission-text').style.borderColor = '';
+        }, 2000);
+        return;
+      }
+
+      const activeGarment = document.querySelector('[data-garment].is-active');
+      const activePlacement = document.querySelector('[data-placement].is-active');
+      const activeFont = document.querySelector('[data-font].is-active');
+      const activeSize = document.querySelector('.size-btn.is-active');
+
+      const garment = activeGarment ? activeGarment.dataset.garment : 'Tee';
+      const placement = activePlacement ? activePlacement.dataset.placement : 'chest';
+      const font = activeFont ? activeFont.dataset.font : 'serif';
+      const size = activeSize ? activeSize.dataset.size : 'M';
+
+      const product = {
+        id: 'commission-' + Date.now(),
+        title: '"' + text + '"',
+        wing: 'commissions',
+        wingLabel: 'Wing III · Commissions',
+        medium: garment.toLowerCase(),
+        mediumLabel: garment,
+        plate_no: 'C' + String(Math.floor(Math.random() * 999)).padStart(3, '0'),
+        price: 42,
+        is_commission: true,
+        custom_text: text,
+        custom_font: font,
+        custom_placement: placement
+      };
+
+      Cart.addItem(product, size);
+    }
+  </script>
+
+</body>
+</html>
